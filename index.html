@@ -203,10 +203,10 @@ async function sendMessage(){
   const typing=addMsg('bot','',true);
   const sys=LANGS[lang].sysLang+'\n\nYou are the official travel assistant for "Die Vielfalt Brasiliense" by OPCO Tours. Answer questions accurately based on the trip information below. If something is not in the trip info, say you don\'t have that information but provide the guide or operator contact. Be concise.\n\n'+TRIP;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{
+    const r=await fetch('/api/chat',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:history})
+      body:JSON.stringify({messages:history,system:sys})
     });
     const data=await r.json();
     const reply=data?.content?.[0]?.text;
