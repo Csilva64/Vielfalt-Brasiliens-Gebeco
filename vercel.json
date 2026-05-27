@@ -1,4 +1,5 @@
 {
-  "buildCommand": "echo 'Static HTML site'",
-  "outputDirectory": "."
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": "dist"
 }
